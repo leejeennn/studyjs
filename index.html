@@ -8,19 +8,33 @@
 <body>
     
     <div class="alert-box" id="alert">
-        알림창임
-        <button onclick="알림창열기('none')">닫기</button>
+        <p id="text">알림창임</p>
+        <button id="close">닫기</button>
     </div>
-    <button onclick="알림창열기('block')">버튼</button>
+    <button onclick="알림창열기('block', '아이디입력하세요')">버튼1</button>
+    <button onclick="알림창열기('block', '비번입력하세요')">버튼2</button>
 
     <script>
         
-        function 알림창열기(구멍) {
-            document.getElementById('alert').style.display = 구멍;
+        function 알림창열기(구멍1, 구멍2) {
+            document.getElementById('alert').style.display = 구멍1;
+            document.getElementById('text').innerHTML = 구멍2;
         }
 
-        // 비슷한 함수가 많으면 가변적인 부분을 구멍뚫어본다.
-        // 구멍 = 파라미터, 인자라고 부른다.
+        // class로 찾기 가능 : class는 같은 명칭을 중복해서 사용 가능하기때문에 인덱싱이 필요함
+        // getElementsByClassName()[0] 
+
+        // addEventListener() : html요소에 onclick=""으로 쓰는 것과 같음 
+        // 파라미터 2개 넣어주면 된다. 
+        // ~~.addEventListener('이벤트명', 콜백함수)
+        document.getElementById('close').addEventListener('click', function() {
+            document.getElementById('alert').style.display = 'none';
+        });
+
+        // 이벤트 : 클릭, 키입력, 스크롤, 드래그 ...
+        // 콜백함수 : 파라미터 자리에 들어가는 함수를 콜백함수라고 부른다. 
+        //           코드를 순차적으로 실행하고 싶을 때
+
     </script>
 </body>
 </html>
