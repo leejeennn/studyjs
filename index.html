@@ -13,7 +13,14 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    
+
+    <div class="black-bg">
+        <div class="white-bg">
+          <h4>로그인하세요</h4>
+          <button class="btn btn-danger" id="close">닫기</button>
+        </div>
+      </div> 
+
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand">Navbar</span>
@@ -31,35 +38,31 @@
         <li class="list-group-item">And a fifth one</li>
     </ul>
 
-    <p class="hello">안녕</p>
-
-    <button id="test-btn">버튼</button>
+    <button id="login">로그인</button>
 
     <script>
-        // 너무너무 긴 코드때문에 보기 싫다. 
-        // 그래서 라이브러리들이 많이 생김 jQuery, React, Vue 등..
-        // 기본 js와 사용하는 문법이 다르다. 
-        // $('셀렉터') 로 찾으면 jQuery 함수만 사용할 수 있고,
-        // querySelector('셀렉터') 로 찾으면 기본 자바스크립트 함수만 사용할 수 있음 
-
-        // document.querySelector('.navbar-toggler').addEventListener('click', function() {
-        //     document.querySelectorAll('.list-group')[0].classList.toggle('show');
-        // })
+        
         $('.navbar-toggler').on('click', function() {
-            // document.querySelectorAll('.list-group')[0].classList.toggle('show');
             $('.list-group').toggleClass('show');
         })
 
-        // document.querySelector('.hello').innerHTML = '바보';
-        $('.hello').html('바보');
-
-        // document.querySelector('.hello').style.color = 'red';
-        $('.hello').css('color', 'red');
-
-        // document.querySelector('#test-btn').addEventListener('click', function() { })
-        $("#test-btn").on('click', function() {
-            $('.hello').hide(); // 간단한 ui용 애니메이션 사용에 편리함
+        $('#login').on('click', function() {
+            $('.black-bg').addClass('show-modal');
         })
+        $('#close').on('click', function() {
+            $('.black-bg').removeClass('show-modal');
+        })
+        
+        // ui에 애니메이션 추가하려면 jquery의 함수를 사용해도 되지만(fadeIn, fadeOut 등등..)
+        // 가능하면 css로 처리하는게 성능에 좋음 
+        
+        // one-way UI 애니메이션 만드는 법 
+        // A상태 -> B상태
+        // 1. 시작 스타일 만들어놓기
+        // 2. 최종 스타일 만들어놓기 
+        // 3. 원할 때 최종 스타일로 변하라고 코드 짬
+        // 4. 시작스타일에 transition 추가 
+
 
     </script>
 

@@ -8,11 +8,15 @@
 }
 
 .list-group {
-    display: none;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    transition: all 1s;
 }
 
 .show {
-    display: block;
+    visibility: visible;
+    height: 400px;
 }
 
 .black-bg {
@@ -22,11 +26,14 @@
     background : rgba(0,0,0,0.5);
     z-index : 5;
     padding: 30px;
-    display: none;
+    visibility: hidden; /* 애니메이션 줄 때 display: none; 대용으로 사용 */
+    opacity: 0;
+    transition: all 1s;
 }
 
 .show-modal {
-    display : block;
+    visibility: visible; /* 애니메이션 줄 때 display: block; 대용으로 사용 */
+    opacity: 1;
 }
 
 .white-bg {
@@ -34,3 +41,4 @@
     border-radius: 5px;
     padding: 30px;
 }
+
