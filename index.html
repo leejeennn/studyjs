@@ -9,24 +9,18 @@
     
     <div class="alert-box" id="alert">
         알림창임
-        <button onclick="알림창닫기()">닫기</button>
+        <button onclick="알림창열기('none')">닫기</button>
     </div>
-    <button onclick="알림창열기()">버튼</button>
+    <button onclick="알림창열기('block')">버튼</button>
 
     <script>
         
-        function 알림창열기() {
-            document.getElementById('alert').style.display='block';
+        function 알림창열기(구멍) {
+            document.getElementById('alert').style.display = 구멍;
         }
 
-        function 알림창닫기() {
-            document.getElementById('alert').style.display='none'
-        }
-
-        // 함수명 작명시 
-        // 1. 영어 소문자로 시작
-        // 2. camelCase로 쓴다.
-        // 3. 한글명으로 작명해도 됨 
+        // 비슷한 함수가 많으면 가변적인 부분을 구멍뚫어본다.
+        // 구멍 = 파라미터, 인자라고 부른다.
     </script>
 </body>
 </html>
