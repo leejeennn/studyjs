@@ -10,53 +10,44 @@
 
     <script>
         
-        // Q1. 369게임 
-        function 삼육구게임(숫자) {
-            if(숫자 % 9 == 0) {
-                console.log('박수박수')
-            } else if(숫자 % 3 == 0) {
-                console.log('박수')
-            } else {
-                console.log('통과')
-            }
-        }
+        // Q1. 
+        let 나이 = 20;
+        const 출신지역 = '서울';
 
-        삼육구게임(6);
-        삼육구게임(9);
-        삼육구게임(11);
+        // Q2.
+        var 예금액 = 10000;
+        var 미래예금액 = 0;
+
+        if(예금액 > 50000) {
+            미래예금액 = 예금액 * 1.2 * 1.2
+        } else {
+            미래예금액 = 예금액 * 1.15 * 1.15
+        }
         
-        // Q2. 
-        function 합격했냐(점수1, 점수2) {
-            if(점수1 < 0 || 점수1 > 100 || 점수2 < 0 || 점수2 > 100) {
-                alert('장난 ㄴㄴ')
-            } else if(점수1 < 40 || 점수2 < 40) {
-                console.log('불합격')
-            } else if(점수1 + 점수2 >= 120) {
-                console.log('합격')
+        console.log(미래예금액.toFixed(0))
+
+        // Q3.
+        var first = 360;
+        var 최대커피량 = 0;
+        최대커피량 = first + first * 2/3 + first * 2/3 * 2/3
+        console.log(최대커피량)
+    </script>
+
+    <p>태조 이성계가 태어난 년도는?</p>
+    <input type="text" id="answer">
+    <button id="send-answer">제출</button>
+
+    <script>
+        var 입력횟수 = 0;
+        document.querySelector('#send-answer').addEventListener('click', function() {
+            입력횟수++;
+            var 입력답안 = document.querySelector('#answer').value;
+            if(입력횟수 <=3 && 입력답안 == '1335') {
+                alert('성공')
             } else {
-                console.log('불합격')
+                alert('멍청아')
             }
-        }
-
-        합격했냐(70, 70);
-        합격했냐(30, 100);
-        합격했냐(50, 50);
-        합격했냐(-3, 50);
-
-        // Q3. 진짜 369 
-        function 진짜삼육구게임(숫자) {
-            console.log(숫자.slice(0))
-            if(숫자.slice(0) == 3 || 숫자.slice(0) == 6|| 숫자.slice(0) == 9) {
-                console.log('박수')
-            } else {
-                console.log('통과')
-            }
-        }
-
-        진짜삼육구게임('6');
-        진짜삼육구게임('9');
-        진짜삼육구게임('11');
-
+        })
     </script>
 
   </body>
