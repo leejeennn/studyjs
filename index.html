@@ -32,6 +32,26 @@
     </div>
 
     <script>
+        // 엄격한 비교 ===  / 느슨한 비교 == 
+
+        // 사실 if문 조건에 들어가는 값은 true/false값임
+        // truthy 자료들: 0제외 숫자, '문자', [], {}
+        // falsy 자료들: 숫자0, '', null, undefined, NaN
+
+        // 조건 2개 이상을 동시에 비교하고싶다면 &&(and) 또는 ||(or) 연산자 사용
+    </script>
+
+    <script>
+        // input태그에 입력한 값이 변경될 때 뭔가 실행하고싶다면
+        document.getElementById('email').addEventListener('input', function() {
+            console.log('aaa')
+        })
+        document.getElementById('email').addEventListener('change', function() {
+            console.log('bbb')
+        })
+    </script>
+
+    <script>
         // $('#send').on('click', function() { })
         // send 버튼에 click 이벤트 추가해도 되지만, 폼 전송시에 submit 이벤트도 발생함
 

@@ -2,67 +2,62 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="main.css" rel="stylesheet">
-    <script
-        src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-        crossorigin="anonymous"></script>
-
     <title>Hello, world!</title>
   </head>
   <body>
 
-    <div class="black-bg">
-        <div class="white-bg">
-          <h4>로그인하세요</h4>
-          <button class="btn btn-danger" id="close">닫기</button>
-        </div>
-      </div> 
-
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <span class="navbar-brand">Navbar</span>
-            <button class="navbar-toggler" type="button">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </nav>
-
-    <ul class="list-group" id="test1">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li>
-    </ul>
-
-    <button id="login">로그인</button>
 
     <script>
         
-        $('.navbar-toggler').on('click', function() {
-            // document.querySelectorAll('.list-group')[0].classList.toggle('show');
-            $('.list-group').toggleClass('show');
-        })
+        // Q1. 369게임 
+        function 삼육구게임(숫자) {
+            if(숫자 % 9 == 0) {
+                console.log('박수박수')
+            } else if(숫자 % 3 == 0) {
+                console.log('박수')
+            } else {
+                console.log('통과')
+            }
+        }
 
-        // document.querySelector('#login').addEventListener('click', function() {
-        //     document.querySelector('.black-bg').classList.add('show-modal');
-        // })
-        $('#login').on('click', function() {
-            $('.black-bg').addClass('show-modal');
-        })
-        $('#close').on('click', function() {
-            $('.black-bg').removeClass('show-modal');
-        })
+        삼육구게임(6);
+        삼육구게임(9);
+        삼육구게임(11);
         
+        // Q2. 
+        function 합격했냐(점수1, 점수2) {
+            if(점수1 < 0 || 점수1 > 100 || 점수2 < 0 || 점수2 > 100) {
+                alert('장난 ㄴㄴ')
+            } else if(점수1 < 40 || 점수2 < 40) {
+                console.log('불합격')
+            } else if(점수1 + 점수2 >= 120) {
+                console.log('합격')
+            } else {
+                console.log('불합격')
+            }
+        }
+
+        합격했냐(70, 70);
+        합격했냐(30, 100);
+        합격했냐(50, 50);
+        합격했냐(-3, 50);
+
+        // Q3. 진짜 369 
+        function 진짜삼육구게임(숫자) {
+            console.log(숫자.slice(0))
+            if(숫자.slice(0) == 3 || 숫자.slice(0) == 6|| 숫자.slice(0) == 9) {
+                console.log('박수')
+            } else {
+                console.log('통과')
+            }
+        }
+
+        진짜삼육구게임('6');
+        진짜삼육구게임('9');
+        진짜삼육구게임('11');
 
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-    
 
   </body>
 </html>
