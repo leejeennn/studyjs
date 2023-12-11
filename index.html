@@ -32,16 +32,6 @@
     </div>
 
     <script>
-        // 엄격한 비교 ===  / 느슨한 비교 == 
-
-        // 사실 if문 조건에 들어가는 값은 true/false값임
-        // truthy 자료들: 0제외 숫자, '문자', [], {}
-        // falsy 자료들: 숫자0, '', null, undefined, NaN
-
-        // 조건 2개 이상을 동시에 비교하고싶다면 &&(and) 또는 ||(or) 연산자 사용
-    </script>
-
-    <script>
         // input태그에 입력한 값이 변경될 때 뭔가 실행하고싶다면
         document.getElementById('email').addEventListener('input', function() {
             console.log('aaa')
@@ -52,18 +42,11 @@
     </script>
 
     <script>
-        // $('#send').on('click', function() { })
-        // send 버튼에 click 이벤트 추가해도 되지만, 폼 전송시에 submit 이벤트도 발생함
 
-        // 유저가 <input>에 입력한 값을 알고싶다
-        // document.getElementById('email').value
-        // $('#email').val()
-
-        // 전송버튼을 누를 때, 조건에 따라 알람창을 띄우고 싶다.
         $('form').on('submit', function(e) {
             if($('#email').val() == '') {
                 alert('아이디 입력 안함');
-                e.preventDefault(); // 폼 전송 막으려면 콜백함수에 e(이벤트객체) 추가하고 e.preventDefault() 추가해주면 됨
+                e.preventDefault();
             } else if($('#password').val() == '') {
                 alert('비번 입력 안함');
                 e.preventDefault();
@@ -77,11 +60,60 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand">Navbar</span>
+            <span class="badge bg-dark">Dark 🔄</span>
             <button class="navbar-toggler" type="button">
             <span class="navbar-toggler-icon"></span>
             </button>
         </div>
     </nav>
+
+    <script>
+        var 클릭횟수 = 0;
+
+        // badge 클릭횟수가 홀수면 내부 글자를 Light로 변경
+        // badge 클릭횟수가 짝수면 내부 글자를 Dark로 변경
+        $('.badge').on('click', function() {
+            클릭횟수++;
+            console.log(클릭횟수)
+            if(클릭횟수 % 2 == 1) {
+                $('.badge').html('Light 🔄');
+            } else {
+                $('.badge').html('Dark 🔄');
+            }
+        })
+
+        // 변수의 선언, 할당
+        var 이름;
+        var 이름1 = 'kim';
+
+        // 변수의 범위 
+        // 함수 안에서 변수 만들면 그 변수의 사용 가능 범위는 그 함수 안에서만 
+        function 함수() {
+            var 이름2 = 'lee';
+            console.log(이름2); // : 에러x
+        }
+        // console.log(이름2); : 에러o
+
+
+        // var, let, const 차이 : 재선언, 재할당, 범위에 차이가 있음
+        // 1. var: 재선언, 재할당이 자유로움 / 범위가 변수 선언한 함수 내 
+        // 2. let: 재선언 불가 / 범위가 {} 중괄호 안
+        // 3. const: 재선언 불가, 재할당 불가 / 범위가 {} 중괄호 안
+
+        // let: 재선언 불가 
+        let 변수1 = 'kim';
+        // let 변수1 = 'park'; : 에러o
+
+        // const: 재선언 불가, 재할당 불가(변하면 안되는 값을 보관하기 좋음)
+        const 변수2 = 'kim';
+        // 변수2 = 'park'; : 에러o
+
+        if(1 == 1) {
+            let 변수3 = 'kim';
+        }
+        // console.log(변수3); : 에러o
+
+    </script>
 
     <ul class="list-group" id="test1">
         <li class="list-group-item">An item</li>
@@ -109,8 +141,6 @@
             $('.black-bg').removeClass('show-modal');
         })
     
-
-
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
