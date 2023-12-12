@@ -42,16 +42,44 @@
     </script>
 
     <script>
+        // includes
+        'abc'.includes('a'); // true
+        // 정규식 : 문자 범위 지정이 가능함 regular expression
+        /a/.test('abc'); // true
+        /[a-z]/.test('abc'); // /[범위]/.test('문자열') 범위 안의 문자를 하나라도 가지고있는지 체크
+        /[A-Z]/.test('ABC');
+        /[ㄱ-ㅎ가-힣]/.test('가나다라');
+        /[0-9]/.test('123');
+        /\S/.test('a'); // 아무 문자 하나
+        /^a/.test('asdf'); // a로 시작하는 문자열인지 체크
+        /a$/.test('asdf'); // a로 끝나는 문자열인지 체크
+        /a|b/.test('asdf'); // or 조건으로 체크 /(a|b)/.test('asdf');로 쓸 수 있음
+
+        // 이메일 정규식 만들어보자
+        /\S@\S.\S/.test('aaa@bbb.ccc'); // \S는 아무 문자 하나
+        /\S@\S\.\S/.test('aaa@bbb.ccc'); // .은 정규식에서 특수한 문법임. 그래서 .이 있는지 체크하려면 \.로 해줘야함
+        /\S+@\S+\.\S+/.test('aaa@bbb.ccc'); // \S는 문자 하나만 체크하기때문에 +는 왼쪽 문자 반복 검색
 
         $('form').on('submit', function(e) {
-            if($('#email').val() == '') {
+            var 사용자입력아이디 = $('#email').val();
+            var 사용자입력비번 = $('#password').val();
+
+            if(사용자입력아이디 == '') {
                 alert('아이디 입력 안함');
                 e.preventDefault();
-            } else if($('#password').val() == '') {
+            } else if(사용자입력비번 == '') {
                 alert('비번 입력 안함');
                 e.preventDefault();
-            } else if($('#password').val().length < 6) {
+            } else if(사용자입력비번.length < 6) {
                 alert('비번 6자리 이상 입력');
+                e.preventDefault();
+            }
+
+            if(!/\S+@\S+\.\S+/.test(사용자입력아이디)) {
+                alert('이메일 형식 아님');
+                e.preventDefault();
+            } else if(!/[A-Z]/.test(사용자입력비번)) {
+                alert('대문자 없음');
                 e.preventDefault();
             }
         })
