@@ -42,7 +42,7 @@
     </script>
 
     <script>
-        // includes
+        /*// includes
         'abc'.includes('a'); // true
         // 정규식 : 문자 범위 지정이 가능함 regular expression
         /a/.test('abc'); // true
@@ -59,6 +59,7 @@
         /\S@\S.\S/.test('aaa@bbb.ccc'); // \S는 아무 문자 하나
         /\S@\S\.\S/.test('aaa@bbb.ccc'); // .은 정규식에서 특수한 문법임. 그래서 .이 있는지 체크하려면 \.로 해줘야함
         /\S+@\S+\.\S+/.test('aaa@bbb.ccc'); // \S는 문자 하나만 체크하기때문에 +는 왼쪽 문자 반복 검색
+        */
 
         $('form').on('submit', function(e) {
             var 사용자입력아이디 = $('#email').val();
@@ -155,6 +156,64 @@
         <h4>Shirts in Sale</h4>
         <button id="login" class="btn btn-danger">로그인</button>
     </div>
+
+    <div style="overflow: hidden">
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="car1.png">
+            </div>
+            <div class="slide-box">
+                <img src="car2.png">
+            </div>
+            <div class="slide-box">
+                <img src="car3.png">
+            </div>
+        </div>
+    </div>
+
+    <button class="slide-prev">이전</button>
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button class="slide-next">다음</button>
+
+    <script>
+        var 현재슬라이드번호 = 1;
+        var 슬라이드개수 = 3;
+
+        $('.slide-1').on('click', function() {
+            현재슬라이드번호 = 1;
+            $('.slide-container').css('transform', 'translateX(0vw)');
+        });
+        $('.slide-2').on('click', function() {
+            현재슬라이드번호 = 2;
+            $('.slide-container').css('transform', 'translateX(-100vw)');
+        });
+        $('.slide-3').on('click', function() {
+            현재슬라이드번호 = 3;
+            $('.slide-container').css('transform', 'translateX(-200vw)');
+        })
+
+        $('.slide-next').on('click', function() {
+            슬라이드개수 == 현재슬라이드번호 ? 현재슬라이드번호 = 1 : 현재슬라이드번호++;
+            $('.slide-container').css('transform', `translateX(-${(현재슬라이드번호-1)*100}vw)`);
+            // if(현재슬라이드번호 == 1) {
+            //     현재슬라이드번호++;
+            //     $('.slide-container').css('transform', 'translateX(-100vw)');
+            // } else if(현재슬라이드번호 == 2) {
+            //     현재슬라이드번호 = 3;
+            //     $('.slide-container').css('transform', 'translateX(-200vw)');
+            // } else if(현재슬라이드번호 == 3) {
+            //     현재슬라이드번호 = 1;
+            //     $('.slide-container').css('transform', 'translateX(0vw)');
+            // }
+        });
+
+        $('.slide-prev').on('click', function() {
+            현재슬라이드번호 == 1 ? 현재슬라이드번호 = 3 : 현재슬라이드번호--;
+            $('.slide-container').css('transform', `translateX(-${(현재슬라이드번호-1)*100}vw)`);
+        })
+    </script>
 
     <div class="alert alert-danger">
         <span id="num">5</span>초 이내 구매시 사은품 증정!

@@ -46,3 +46,17 @@
     padding: 100px 20px;
     background: lightgrey;
 }
+
+.slide-container {
+    width: 300vw; /* 브라우저 폭 = 100vw */
+    transition: all 1s;
+    /* transform: translateX(-100vw); margin-left보다 부드러움 */
+}
+
+.slide-box {
+    width: 100vw;
+    float: left;
+}
+.slide-box img {
+    width: 100%;
+}
